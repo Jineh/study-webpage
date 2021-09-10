@@ -1,0 +1,226 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web & VR Hybrid</title>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/local.css" />
+    
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+        <script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+        
+
+    </head>
+    <body>
+<div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+              <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+              <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+        <div id="page-wrapper">
+            <div class="container">
+                
+                <div class="row">
+                   
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2>[퀴즈]</h2>
+                                <br>
+                                <p>학습 정리를 위한 퀴즈입니다.</p> 
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+                    </div>
+                </div>
+
+
+                <form  method="post" action="/p">
+                    <div>
+                    <h4>1. 알칼리 금속에 대한 다음의 설명 중에서 옳지 않은 것을 고르시오.</h4>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz1" id="optionsRadiosInline1" value="option1">
+                            1. 다른 금속에 비해 녹는점이 낮다.
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz1" id="optionsRadiosInline2" value="option2">
+                            2. 공기 중의 산소와 쉽게 반응하여 산화물을 형성한다.
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option3">
+                            3. 물과 반응하여 수소 기체를 발행한다.
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option4">
+                            4. 직사광선을 피해 건조한 공기가 통하는 곳에 보관해야한다.
+                        </label><br><br><br>    
+                    </div>
+                    <h4>2. 금속 상태의 나트륨은 석유나 벤젠 속에 넣어 보관한다. 그 이유와 관계가 있는 내용을 고르시오.</h4>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz2" id="optionsRadiosInline1" value="option1">
+                            1. 알칼리 금속은 열과 전기가 잘 통한다.
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz2" id="optionsRadiosInline2" value="option2">
+                            2. 알칼리 금속은 다른 금속에 비해 밀도가 작다.
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option3">
+                            3. 알칼리 금속은 피부에 닿아도 상관없다.
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option4">
+                            4. 알칼리 금속은 공기 중에서 자르면 단면의 광택이 금방 사라진다.
+                        </label><br><br><br>    
+                    </div>
+                    <h4>3. 칼륨이 물과 반응하면 (A) 기체와 (B) 물질을 만든다. 바르게 짝지어진 것을 고르시오.</h4>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz3" id="optionsRadiosInline1" value="option1">
+                            1. (A) : 수소, (B) : 수산화 칼륨
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz3" id="optionsRadiosInline2" value="option2">
+                            2. (A) : 산소, (B) : 수산화 칼륨
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option3">
+                            3. (A) : 수소, (B) : 산화 칼륨
+                        </label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option4">
+                            4. (A) : 이산화탄소, (B) : 산화 칼륨
+                        </label><br><br><br>
+                        <h4>4. 알칼리 금속 단면의 색과 페놀프탈레인 용액과의 반응한 색을 알맞게 짝지은 것을 고르시오.</h4>
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz4" id="optionsRadiosInline1" value="option1">
+                                1. 검은색, 무색
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz4" id="optionsRadiosInline2" value="option2">
+                                2. 흰색, 붉은색
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz4" id="optionsRadiosInline3" value="option3">
+                                3. 은백색, 무색
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz4" id="optionsRadiosInline3" value="option4">
+                                4. 검은색, 붉은색
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz4" id="optionsRadiosInline3" value="option5">
+                                5. 은백색, 붉은색
+                            </label>
+                            <br><br><br>    
+                        </div>
+                        <h4>5. 알칼리 금속의 공통점으로 알맞은 것은?</h4>
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz5" id="optionsRadiosInline1" value="option1">
+                                1. 물과 반응 시 헬륨가스가 발생한다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz5" id="optionsRadiosInline2" value="option2">
+                                2. 원자 번호가 커질수록 반응성이 작아진다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz5" id="optionsRadiosInline3" value="option3">
+                                3. 페놀프탈레인 용액과 반응 시 염기성 물질을 생성한다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz5" id="optionsRadiosInline3" value="option4">
+                                4. 리튬, 나트륨, 칼륨 중에서 칼륨이 제일 단단하다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz5" id="optionsRadiosInline3" value="option5">
+                                5. 리튬, 나트륨, 칼륨 중에서 리튬이 물과 가장 빠르게 반응한다.
+                            </label>
+                            <br><br><br>    
+                        </div> 
+                        <h4>6. 알칼리 금속의 반응성이 매우 커서 (&nbsp;&nbsp;&nbsp;&nbsp;) 속에 넣어서 보관해야 한다. 빈칸에 들어갈 말로 가장 알맞은 것은?</h4>
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz6" id="optionsRadiosInline1" value="option1">
+                                1. 액체질소
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz6" id="optionsRadiosInline2" value="option2">
+                                2. 메틸 오렌지
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz6" id="optionsRadiosInline3" value="option3">
+                                3. 석유
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz6" id="optionsRadiosInline3" value="option4">
+                                4. BTB 용액
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz6" id="optionsRadiosInline3" value="option5">
+                                5. 증류수
+                            </label>
+                            <br><br><br>    
+                        </div>     
+                    </div>
+                   
+                    <button type="submit"  class="btn btn-primary btn-lg">제출</button><br><br><br>
+                </div>
+                </form>
+                
+        </div>
+        
+ </body>
+    
+</html>

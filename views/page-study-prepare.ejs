@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web & VR Hybrid</title>
+<link rel="stylesheet" href="css/mystyle2.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/local.css" />
+    
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+</head>
+<body>
+<div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+              <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+              <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+              <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+              <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+        
+<!-- 주의사항 코드 -->
+	<div class="container">
+	<div class="row;" style="height:300px" >
+	            <div class="text-center">
+                    <h1>실험시 주의사항</h1>
+                    <br>
+                </div>
+	            <div class="panel panel-primary"style= "float: left; width: 33%; height: 150px" >
+	              <div class="panel-heading">
+	                <h3 class="panel-title" >Warning1</h3>
+	              </div>
+	              <div class="panel-body" >
+	                	알칼리 금속과 물이 반응할 때 불꽃이 튀기도 하므로 보안경을 반드시 착용하고, 유독한 연기가 발생하므로 시계접시를 올려 실험하는 것을 권장하며 환기에 주의한다.
+	              </div>
+	            </div>
+	            <div class="panel panel-success" style= "float: left; width: 33%; height: 150px " >
+	              <div class="panel-heading" >
+	                <h3 class="panel-title" >Warning2</h3>
+	              </div>
+	              <div class="panel-body"  >
+	                	남은 금속을 휴지통에 버리면 화재가 발생할 수 있으므로, 석유에 다시 넣어 보관하거나 물과 충분히 반응시켜 처리한다.                  
+	              </div>
+	            </div>
+	            <div class="panel panel-warning" style= "float: left; width: 33%; height: 150px">
+	              <div class="panel-heading" >
+	                <h3 class="panel-title">Warning3</h3>
+	              </div>
+	              <div class="panel-body" >
+	               	 알칼리 금속이 피부에 닿지 않도록 주의하라.
+	              </div>
+	            </div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<!-- 준비물 -->
+            <div class="row">
+                <div class="text-center">
+               
+                    <h1>실험 준비물</h1>
+                    <br>
+                </div>
+                <h3>
+					<ul>
+						<li>실험 주제: 알칼리 금속 반응
+						<li>실험 목표: 리튬, 나트륨, 칼륨의 실험을 통해 알칼리 금속의 규칙성과 공통점을 알아본다
+					</ul>
+				</h3>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/lithium.png" /></center>
+                            <div class="detail">
+                            	리튬
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/natrium.png" /></center>
+                            <div class="detail">
+                            	나트륨
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/kalium.png" /></center>
+                            <div class="detail">
+                            	칼륨
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/lab-coat.png" /></center>
+                            <div class="detail">
+                            	실험복
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/goggles.png" /></center>
+                            <div class="detail">
+                            	보안경
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/gloves.png" /></center>
+                            <div class="detail">
+                            	장갑
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/surgery.png" /></center>
+                            <div class="detail">
+                            	핀셋
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/cutter-knife.png" /></center>
+                            <div class="detail">
+                            	칼
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/chemistry.png" /></center>
+                            <div class="detail">
+                            	페놀프탈레인
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/pipette.png" /></center>
+                            <div class="detail">
+                            	스포이드
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <center><img id="img" class="thumbnail img-responsive" alt="Bootstrap template" src="img/beaker.png" /></center>
+                            <div class="detail">
+                            	물
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br><br>
+        <!--페이지 이동 버튼-->
+        <div class="row">
+            <div class="col-md-4"></div> <!--공백-->
+        <div class="col-md-4">
+        <ul class="pagination pagination-lg" style="margin-left: auto; margin-right: auto;">
+            <li><a href="#">&laquo; 이전페이지</a></li>
+            <li><a href="page-study-air">다음페이지 &raquo;</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4"></div><!--공백-->
+    </div>
+        <br><br><br><br>
+        </div>
+</body>
+</html>

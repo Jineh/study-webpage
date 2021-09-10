@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Light Way Admin</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
+
+    <script type="text/javascript" src="../public/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css"
+        href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript"
+        src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul id="active" class="nav navbar-nav side-nav">
+                    <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+                    <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+                    <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+                    <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+                    <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+                    <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+                    <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+                    <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+                    <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+
+                    <li>
+                        <form class="navbar-search">
+                            <% if(name=="null"){ %>
+                            <form>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="location.href='login' ">login</button>
+                            </form>
+                            
+                            <% } %>
+                        </form>
+                    </li>
+
+
+                    
+                    
+                    <li class="divider-vertical"></li>
+
+                    <% if(name!="null"){ %>
+                    <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                            <%= name %><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><br></li>
+                                <center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                        </ul>
+                        <% } %>
+                    </li>
+                    
+
+
+
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+
+        <div id="page-wrapper">
+
+            <div class="container">
+                <br>
+
+                <blockquote>
+                <h2>게시글 작성</h2>
+            </blockquote>
+                <br>
+
+
+
+                <div class="content">
+
+                    <form class="content ui form" method="post" action="page-board-view">
+
+
+                        <div class="form-group">
+                            <label>카테고리 선택</label>
+                            <select class="form-control" name="category" style="color: black;">
+                                <option disabled selected>카테고리 선택</option>
+                                <option>강좌</option>
+                                <option>VR관련</option>
+                                <option>시스템/서버</option>
+                                <option>기타</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="field">
+                                <label class="rows">제목</label>
+                                <input class="form-control" name="title" placeholder="제목 입력"  style="color: black;">
+                            </div>
+                            <div class="field"></div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label>내용</label>
+                            <textarea id="contents" name="contents" rows="10" cols="80"></textarea>
+                            <script type="text/javascript">
+                                CKEDITOR.replace('contents'
+                                    , {
+                                        height: 500
+                                    });
+                            </script>
+                        </div>
+
+
+                        <input class="btn btn-primary" type="submit" value="추가" name="" />
+                        <input class="btn btn-primary" type="button" value="취소" name=""
+                            onclick="javascript:history.back()" />
+                    </form>
+
+                    <br><br>
+
+                </div>
+            </div>
+
+
+
+
+            <br><br>
+
+
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+
+
+</body>
+
+</html>

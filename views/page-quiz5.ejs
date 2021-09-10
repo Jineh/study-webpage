@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web & VR Hybrid</title>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/local.css" />
+    
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+        <script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+        
+
+    </head>
+    <body>
+<div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+              <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+              <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+              <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+              <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+          <div id="page-wrapper">
+            <div class="container">
+                <div class="row">
+                   
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2>[5회차 퀴즈]</h2>
+                                <br>
+                                <p>학습 정리를 위한 퀴즈입니다.</p> 
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+                    </div>
+                </div>  
+            </form>
+                        <h4>1. 실험 시 유의사항으로 옳은 것은?</h4>
+                        <form method="post" action="/page-quiz-score">
+                            <input type="hidden" name="quizNum" value="5">
+                        <div class="form-group1">
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz1" id="optionsRadiosInline1" value="option1">
+                                1. 알칼리 금속과 물이 반응할 때 불꽃이 튀기도 하므로 보안경을 반드시 착용한다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz1" id="optionsRadiosInline2" value="option2">
+                                2. 유독한 연기가 발생하므로 시계접시를 책상에 두고 실험하는 것을 권장한다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option3">
+                                3. 실험을 하고 남은 금속을 휴지통에 버린다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option4">
+                                4. 알칼리 금속은 피부에 닿아도 무해하다.
+                            </label><br><br><br>  
+                        </div>
+                        
+                        <h4>2. 실험을 통해 알 수 있는 결론으로 옳은 것은?</h4>
+                        <div class="form-group2">
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz2" id="optionsRadiosInline1" value="option1">
+                                1. 리튬, 나트륨, 칼륨은 주기율표에서 모두 2족에 속하는 원소로, 원자가 전자를 2개 가진다는 공통점이 있다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz2" id="optionsRadiosInline2" value="option2">
+                                2. 페놀프탈레인 용액을 떨어트린 물이 붉은색으로 변하는 것으로 보아, 산성 물질을 생성한다는 것을 알 수 있다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option3">
+                                3. 원자 번호가 커질수록 반응성이 커진다.
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option4">
+                                4. 원자 번호가 작아질수록 무르다.
+                            </label><br><br><br>  
+                        </div>
+                        
+                        <h4>3. 알칼리 금속의 불꽃반응을 통한 금속 색깔로 알맞지 않은 것은?</h4>
+                        <div class="form-group3">
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz3" id="optionsRadiosInline1" value="option1">
+                                1. 칼륨-파랑색
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz3" id="optionsRadiosInline2" value="option2">
+                                2. 루비듐-빨강색
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option3">
+                                3. 리튬-빨강색
+                            </label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option3">
+                                4. 나트륨-노랑색
+                            </label><br><br><br>   
+                        </div>
+                        <input type="submit"  class="btn btn-primary btn-lg" value="제출">
+                        <br><br><br>
+                        <!-- 귀하의 점수는 <input type=text name=score value="" style=width:30>점 입니다. -->
+                        </form>     
+                    </div>
+                   
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<head>
+        <!-- bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
+    <link rel="stylesheet" type="text/css" href="css/chart.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
+
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+              <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+              <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+              <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+              <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+<br><br>
+<h3 align="center">퀴즈 정답률</h3>
+
+<!-- 컬러블록 -->
+<div class="details">
+  <div class="detail" id="round1" style="margin-left:190px "></div>
+  <div class="detail">: 나의 점수</div>
+</div>
+<br>
+<div class="details">
+  <div class="detail" id="round2" style="margin-left:190px "></div>
+  <div class="detail">: 평균 점수</div>
+</div>
+
+
+<div id="bar-chart"> <!--바 그래프-->
+  <div class="graph">
+    <ul class="x-axis">
+      <li><span>1주차</span></li>
+      <li><span>2주차</span></li>
+      <li><span>3주차</span></li>
+      <li><span>4주차</span></li>
+      <li><span>5주차</span></li>
+    </ul>
+    <ul class="y-axis">
+      <li><span>100</span></li>
+      <li><span>75</span></li>
+      <li><span>50</span></li>
+      <li><span>25</span></li>
+      <li><span>0</span></li>
+    </ul>
+    <!---->
+    <div class="bars">
+      <div class="bar-group">
+        <div id="chart1" class="bar bar-1 stat-1" style="<%= chart1bar %>">      
+          <span>4080</span>
+        </div>
+
+        <div class="bar bar-3 stat-3" style="<%= chart1avg %>">
+          <span>1040</span>
+        </div>
+      </div>
+
+
+      <div class="bar-group">
+        <div id="chart2" class="bar bar-4 stat-1" style="<%= chart2bar %>">
+          <span>6080</span>
+        </div>
+        <div class="bar bar-6 stat-3" style="<%= chart2avg %>">
+          <span>1760</span>
+        </div>
+      </div>
+
+
+      <div class="bar-group">
+        <div id="chart3" class="bar bar-7 stat-1" style="<%= chart3bar %>">
+          <span>6240</span>
+        </div>
+        <div class="bar bar-9 stat-3" style="<%= chart3avg %>">
+          <span>2880</span>
+        </div></div>
+
+
+      <div class="bar-group">
+        <div id="chart4" class="bar bar-10 stat-1" style="<%= chart4bar %>">
+          <span>3520</span>
+        </div>
+        <div class="bar bar-12 stat-3" style="<%= chart4avg %>">
+          <span>4720</span>
+        </div>
+      </div>
+
+
+      <div class="bar-group">
+        <div id="chart5" class="bar bar-13 stat-1" style="<%= chart5bar %>">
+          <span>2240</span>
+        </div>
+        <div class="bar bar-15 stat-3" style="<%= chart5avg %>">
+          <span>7520</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+                <!--성적관리차트-->
+                <div style="margin-left:200px">
+              <div style="float : left; width : 40%">
+                <div class="col-lg-12" >
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                              <i class="fa fa-magnet"></i> 성적관리</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <ul class="server-stats">
+                                <li>
+                                    <div class="key pull-right">1주차 알칼리 퀴즈</div>
+                                    <div class="stat">
+                                        <div class="info"><%= coNum1 %>/100.00</div>
+                                        <div class="progress progress-small">
+                                            <div style="<%= chart1prog %>" class="progress-bar"></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="key pull-right">2주차 알칼리 퀴즈</div>
+                                    <div class="stat">
+                                        <div class="info"><%= coNum2 %>/100.00</div>
+                                        <div class="progress progress-small">
+                                            <div style="<%= chart2prog %>" class="progress-bar"></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="key pull-right">3주차 알칼리 퀴즈</div>
+                                    <div class="stat">
+                                        <div class="info"><%= coNum3 %>/100.00</div>
+                                        <div class="progress progress-small">
+                                            <div style="<%= chart3prog %>" class="progress-bar progress-bar-inverse"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                  <div class="key pull-right">4주차 알칼리 퀴즈</div>
+                                  <div class="stat">
+                                      <div class="info"><%= coNum4 %>/100.00</div>
+                                      <div class="progress progress-small">
+                                          <div style="<%= chart4prog %>" class="progress-bar progress-bar-inverse"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li>
+                                <div class="key pull-right">5주차 알칼리 퀴즈</div>
+                                <div class="stat">
+                                    <div class="info"><%= coNum5 %>/100.00</div>
+                                    <div class="progress progress-small">
+                                        <div style="<%= chart5prog %>" class="progress-bar progress-bar-inverse"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                    <!--오답관리차트-->
+                    <div style="float : left; width : 40%">
+                    <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-magnet"></i> 오답관리</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <ul class="server-stats">
+                                <li>
+                                    <div class="key pull-right">알칼리 퀴즈1</div>
+                                    <div class="stat">
+                                        <div class="info"><%= incoNum1 %> / 3</div>
+                                        <div class="progress progress-small">
+                                            <div style="<%= chart1in %>" class="progress-bar progress-bar-danger"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="key pull-right">알칼리 퀴즈2</div>
+                                    <div class="stat">
+                                        <div class="info"><%= incoNum2 %> / 3</div>
+                                        <div class="progress progress-small">
+                                            <div style="<%= chart2in %>" class="progress-bar progress-bar-danger"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="key pull-right">알칼리 퀴즈3</div>
+                                    <div class="stat">
+                                        <div class="info"><%= incoNum3 %> / 3</div>
+                                        <div class="progress progress-small">
+                                            <div style="<%= chart3in %>" class="progress-bar progress-bar-danger"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                  <div class="key pull-right">알칼리 퀴즈4</div>
+                                  <div class="stat">
+                                      <div class="info"><%= incoNum4 %> / 3</div>
+                                      <div class="progress progress-small">
+                                          <div style="<%= chart4in %>" class="progress-bar progress-bar-danger"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li>
+                                <div class="key pull-right">알칼리 퀴즈5</div>
+                                <div class="stat">
+                                    <div class="info"><%= incoNum5 %> / 3</div>
+                                    <div class="progress progress-small">
+                                        <div style="<%= chart5in %>" class="progress-bar progress-bar-danger"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+<div id="chart">
+</div>
+</body>
+<html>

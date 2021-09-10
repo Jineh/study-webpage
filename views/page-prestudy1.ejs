@@ -1,0 +1,318 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web & VR Hybrid</title>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/local.css" />
+    
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+        <script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+        
+
+        
+        <!--css-->
+        <link rel="stylesheet" type="text/css" href="css/characterastic.css" />
+        <link rel="stylesheet" type="text/css" href="css/glow.css" />
+        <link rel="stylesheet" type="text/css" href="css/flame.css" />
+
+    </head>
+    <body>
+<div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul id="active" class="nav navbar-nav side-nav">
+                 <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+                 <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+                 <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+                 <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+                 <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+                 <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+                 <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+                 <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+                 <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+              </ul>
+                 <ul class="nav navbar-nav navbar-right navbar-user">
+   
+                   <li>
+                       <form class="navbar-search">
+                           <% if(name=="null" ){%>
+                       <form >
+                           <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                       </form><% } %>
+                   </li>
+   
+                   
+                   <li class="divider-vertical"></li>
+                   <% if(name!="null"){%>
+                   <li class="dropdown user-dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                       <ul class="dropdown-menu">
+                           <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                               <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                               <li class="divider"></li>
+                               <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+   
+                       </ul>
+                   </li><% } %>
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+
+
+        <!--알칼리 금속의 특징-->
+        <div id="page-wrapper">
+        <br>
+        <h1 style="text-align: center;">알칼리 금속의 특징</h1>
+        <br>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                    <div class="well" style="width: 290px; height: 290px;">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/char1.png" alt="Avatar" style="width:250px;height:250px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>알칼리 금속의 특징 1</h3> 
+                                <p>알칼리 금속과 물이 반응하게 될 경우 수소기체가 발생한다.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                    <div class="well"  style="width: 290px; height: 290px;">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/char2.png" alt="Avatar" style="width:250px;height:250px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>알칼리 금속의 특징 2</h3> 
+                                <p>알칼리 금속은 반응성이 매우 뛰어나므로 피부에 닿지 않게 하고 알칼리 금속을 보존하기 위해 빛이 차단되는 갈색의 병에 액상의 유기 탄화수소를 채워 그 안에 잠기게 한 후 서늘한 곳에 보관해야 한다.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                    <div class="well" style="width: 290px; height:290px;">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/char3.png" alt="Avatar" style="width:250px;height:250px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>알칼리 금속의 특징 3</h3> 
+                                <p>알칼리 금속은 1개의 원자가 전자를 가진다.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                    <div class="well" style="width: 290px; height: 290px;">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/char4.png" alt="Avatar" style="width:250px;height:250px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>알칼리 금속의 특징 4</h3> 
+                                <p>모든 알칼리 금속은 물과 반응하게 될 시 폭발적으로 반응하게 되는 성질을 가진다.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                    <div class="well" style="width: 290px; height: 290px;">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/char5.png" alt="Avatar" style="width:250px;height:250px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>알칼리 금속의 특징 5</h3> 
+                                <p>알칼리 금속과 물의 반응식</p>
+                                <p>2M + 2H<sub>2</sub>O = 2MOH +H<sub>2</sub></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                    <div class="well" style="width: 290px; height: 290px;">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                            <div class="flip-card-front" style="background-image: url('img/char6.png'); background-size: cover;">
+                                <div><h4 class="glow">GLOW</h4></div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>알칼리 금속의 특징 6</h3> 
+                                <p>공기중에서 금속을 자르게 되면 표면의 광택이 금방 사라진다.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                </div>
+            </div>
+            <!-- 알칼리 금속의 특징 끝-->
+
+
+
+         <!--알칼리 금속의 불꽃반응-->   
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 style="text-align: center;">알칼리 금속의 불꽃반응</h1>
+        <br><br>
+
+
+
+        <div class="row">
+            <div class="col-md-1"> <!--공백-->
+            </div>
+
+            <div class="col-md-2">
+                
+                    <div class="container" style="float: left;">
+                        <div class="red flame"></div>
+                        <div class="orange flame"></div>
+                        <div class="yellow flame"></div>
+                        <div class="white flame"></div>
+                        <div class="blue circle"></div>
+                        <div class="black circle"></div>
+                    </div>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <div class="container" style="float: left;">
+                        <div class="red1 flame"></div>
+                        <div class="orange flame"></div>
+                        <div class="yellow flame"></div>
+                        <div class="white flame"></div>
+                        <div class="blue circle"></div>
+                        <div class="black circle"></div>
+                      </div>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <div class="container" style="float: left;">
+                        <div class="red2 flame"></div>
+                        <div class="orange flame"></div>
+                        <div class="yellow flame"></div>
+                        <div class="white flame"></div>
+                        <div class="blue circle"></div>
+                        <div class="black circle"></div>
+                      </div>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <div class="container" style="float: left;">
+                        <div class="red flame"></div>
+                        <div class="orange flame"></div>
+                        <div class="yellow flame"></div>
+                        <div class="white flame"></div>
+                        <div class="blue circle"></div>
+                        <div class="black circle"></div>
+                      </div>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <div class="container" style="float: left;">
+                        <div class="red3 flame"></div>
+                        <div class="orange flame"></div>
+                        <div class="yellow flame"></div>
+                        <div class="white flame"></div>
+                        <div class="blue circle"></div>
+                        <div class="black circle"></div>
+                      </div>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <span> </span>
+            </div>
+            <div class="col-md-2">
+                
+                    <h4>&nbsp;&nbsp;리튬</h4>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <h4>&nbsp;&nbsp;나트륨</h4>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <h4>&nbsp;&nbsp;칼륨</h4>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <h4>&nbsp;&nbsp;루비듐</h4>
+                
+            </div>
+            <div class="col-md-2">
+                
+                    <h4>&nbsp;&nbsp;세슘</h4>
+                
+            </div>
+        </div>
+        <!-- 알칼리 금속 불꽃반응 끝-->
+
+
+        <br><br><br><br><br><br>
+        <!--페이지 이동 버튼-->
+        <div class="row">
+            <div class="col-md-4"></div> <!--공백-->
+        <div class="col-md-4">
+        <ul class="pagination pagination-lg" style="margin-left: auto; margin-right: auto;">
+            <li><a href="#">&laquo; 이전페이지</a></li>
+            <li><a href="page-prestudy2">다음페이지 &raquo;</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4"></div><!--공백-->
+    </div>
+        <br><br><br><br>
+    </div>
+</div>
+        
+ </body>
+    
+</html>

@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web & VR Hybrid</title>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/local.css" />
+    
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+        <script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+        
+
+    </head>
+    <body>
+<div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+              <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+              <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+              <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+              <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+
+          <div id="page-wrapper">
+              <div class="container">
+                  <div class="row">
+                     
+                      <div class="col-sm-9">
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <h2>[4회차 퀴즈]</h2>
+                                  <br>
+                                  <p>학습 정리를 위한 퀴즈입니다.</p> 
+                              </div>
+                          </div>
+                          <hr>
+                          <br>
+                      </div>
+                  </div>  
+                </form>
+                          <h4>1. VR 사용 전 주의 사항으로 옳지 않은 것은?</h4>
+                          <form method="post" action="/page-quiz-score">
+                            <input type="hidden" name="quizNum" value="4">
+                          <div class="form-group1">
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline1" value="option1">
+                                  1. 컨디션이 좋지 않은 사람은 사용을 삼간다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline2" value="option2">
+                                  2. 안전을 위해 움직이기 편한 복장, 신발을 이용한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option3">
+                                  3. 낙하 등 손상으로 인해 충격 받지 않도록 이용한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option4">
+                                  4. 체력 증진이 가능하므로 노약자의 사용을 추천한다.
+                              </label><br><br><br>  
+                          </div>
+                          
+                          <h4>2. VR 사용 시 주의 사항으로 옳지 않은 것은?</h4>
+                          <div class="form-group2">
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline1" value="option1">
+                                  1. VR 헤드셋 착용 시 주변 상황을 볼 수 없으므로 안전한 곳에서 사용한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline2" value="option2">
+                                  2. VR에 적응될 때까지 오랜 시간 동안 이용한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option3">
+                                  3. 이용 후 눈이 피로하거나, 현기증, 멀미 등의 증상이 발생한 경우 즉시 이용을 중지하고 충분한 휴식을 취한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option4">
+                                  4. VR 기기에 손상을 가하지 않도록 이용한다.
+                              </label><br><br><br>  
+                          </div>
+                          
+                          <h4>3. VR기기에 대한 설명으로 옳지 않은 것은?</h4>
+                          <div class="form-group3">
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline1" value="option1">
+                                  1. VR기기를 이용할 때 주변에 부딪히는 물건이 없도록 깨끗하게 치운다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline2" value="option2">
+                                  2. 헤드셋을 뒤에서 앞으로 벨크로를 이용하여 자신의 머리 사이즈에 맞게 조정하여 착용한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option3">
+                                  3. 헤드셋을 통해 가상환경에서 실험환경을 볼 수 있다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option3">
+                                  4. 상단버튼: 돌을 줍고 떨어뜨릴 수 있다.
+                              </label><br><br><br>   
+                          </div>
+                          <input type="submit"  class="btn btn-primary btn-lg" value="제출">
+                      <br><br><br>
+                          <!-- 귀하의 점수는 <input type=text name=score value="" style=width:30>점 입니다. -->
+                          </form>     
+                      </div>
+                     
+      </div>
+      
+</body>
+  
+</html>

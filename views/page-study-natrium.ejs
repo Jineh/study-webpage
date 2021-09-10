@@ -1,0 +1,211 @@
+<!--
+concept: part of the baking series
+technique: basic transformation
+-->
+<html>
+
+	<head>
+<meta charset="utf-8">
+		<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/local.css" />
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+<link rel="stylesheet" href="css/b.css">
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		  <div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				  <span class="sr-only">Toggle navigation</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+			  <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+			  <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+			  <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+              <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+			  </ul>
+		  </div>
+	  </nav> <!-- end of navigation bar and index-->
+<div id="page-wrapper">
+<svg version="1.1" class="straberry" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    	 viewBox="80 150 600 250" style="enable-background:new 80 150 600 250;" xml:space="preserve">
+	   
+		 <!--<g id="leaves">
+           
+       	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="300.202" y1="364.4512" x2="300.202" y2="340.9279">
+       		<stop  offset="2.590880e-03" style="stop-color:#83E29F"/>
+       		<stop  offset="1" style="stop-color:#00A870"/>
+       	</linearGradient>
+       	<path class="stra0" d="M339.7,345.7c-23-9.1-35.8-2.7-38.7-0.9c-0.9-1.9-1.7-3.1-1.7-3.1c-0.6,1-1.2,2-1.7,3
+       		c-7.2-1.7-28.6-6-36.9,1.1c0,0,3.6,7,22.1,4c-2.7,1.7-4.7,4.3-4.9,8.3c0,0,9,4.7,17.5-7.9c-2.8,10.2,3.8,14.3,3.8,14.3
+       		c5.4-3.4,5.4-9.2,4-14.1c8.5,12.4,17.4,7.7,17.4,7.7c-0.2-3.9-2.1-6.5-4.7-8.2C332.8,352.7,339.7,345.7,339.7,345.7z"/>
+       </g>-->
+
+       <g id="Knife-behind">
+       		<path class="stra6" d="M447.6,247.6c-145.6-3.5-283.4-68-283.4-68s34.6-5.2,46.2-6c59.2-3.8,237.1-3,237.1-3V247.6z"/>
+       		<path class="stra7" d="M442.7,247.2c-145.6-3.5-278.5-67.6-278.5-67.6s34.6-5.2,46.2-6c41.8,12.1,79.3,28,106,32.3
+       					c57.2,9.2,119.4,13.2,119.4,13.2L442.7,247.2z"/>
+       		<path class="stra8" d="M447.6,247.6c-145.6-3.5-283.4-68-283.4-68s42.6,16.7,53.7,20.4c40.4,13.3,62.3,19.4,88.6,26
+       					c25.2,6.3,58.4,11.7,72.5,13.7c45,6.5,68.5,5.9,68.5,5.9L447.6,247.6z"/>
+       		<path class="stra9" d="M504,166.4l-39-0.2h-17c-2.9,0-5.3,2.4-5.3,5.3v75.7c0,2.9,2.4,5.3,5.3,5.3h17c11.9-25.7,39-26,39-26v0h21.1
+       			c2.3,0,4.6-0.6,6.6-1.8l5.5-3.2c4.2-2.5,9.4-2.4,13.6,0.2l0.7,0.4c4.3,2.7,9.7,2.7,13.9,0c4.5-2.8,10.2-2.6,14.6,0.4l2.1,1.5
+       			c2.2,1.6,4.9,2.4,7.6,2.4h12.5v-60H504z"/>
+            <linearGradient id="stain_1_" gradientUnits="userSpaceOnUse" x1="265.8091" y1="221.7616" x2="340.2461" y2="221.7616">
+          		<stop  offset="1.295440e-03" style="stop-color:#A6A6A6"/>
+          		<stop  offset="0.8381" style="stop-color:#A6A6A6"/>
+          		<stop  offset="1" style="stop-color:#A6A6A6"/>
+          	</linearGradient>
+          	<path id="stain" d="M266.3,216c0,0,51.6,16.8,72.6,18.5c0,0,3-2.6,0-4.3s-10.2-2.5-11-6.4s-5.8-8-9.7-7.6
+          		c-3.9,0.4-6.5,2.8-16.9-1c-3.2-1.2,4.6-5.6-3.2-5.1c-5.6,0.3-6.4-2.8-15.7,1.1c-7,2.9-11.8,0.6-14.8,1.1
+          		C264.6,212.5,266.3,216,266.3,216z"/>
+       </g>
+
+       
+       <g id="straw3">
+       	<g>
+       		<g>
+       			<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="259.9824" y1="298.9059" x2="340.3923" y2="298.9059">
+       				<stop  offset="1.295440e-03" style="stop-color:#eedcb6"/>
+       				<stop  offset="1" style="stop-color:#eedcb6"/>
+				   </linearGradient>
+				   
+                   <path class="stra15" d="M265 270 H 345 V 350 H 265 L 265 270"/>
+       			<!--<path class="stra15" d="M327.1,336c-3.7,3.8-11.8,9.3-17,10.4c-5,1.1-15.3,1-20.3,0c-4.6-1-12.6-6.2-15.9-9.5
+       				c-6.8-6.7-16-18.8-12.7-36.5c1.6-8.4,8.2-18.2,11.7-24.1c2.7-4.5,13.8-17.6,13.8-17.6c6.7-5.3,9.5-8.3,13.5-8.3
+       				c3.6,0,6.8,2.6,13.6,8.3c0,0,10.6,12.2,13.1,16.5c3.7,6.1,10.9,16.2,12.3,25.2C342.5,321.3,333.4,329.4,327.1,336z"/>-->
+                   </g>
+       	</g>
+       </g>
+       <g id="straw2">
+       	<g>
+       		<g>
+       			<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="299.9972" y1="346.7916" x2="299.9972" y2="250.0922">
+       				<stop  offset="1.295440e-03" style="stop-color:#eedcb6"/>
+       				<stop  offset="0.8381" style="stop-color:#eedcb6"/>
+       				<stop  offset="1" style="stop-color:#eedcb6"/>
+       			</linearGradient>
+       			
+       			
+    
+			   </g>
+			   
+       		<path class="stra17" d="M280 290 H 330 V 330 H 280 L 280 290"/>
+       		<g>
+       			<path class="stra11" d="M286.2,310.6c0.7-0.7,1.3-1.4,1.9-2.1"/>
+       			<path class="stra12"d="M286.2,310.6c0.7-0.7,1.3-1.4,1.9-2.1"/>
+       			
+       			
+       			
+       		</g>
+       	</g>
+       </g>
+       <g id="Knife-front">
+       		<path class="stra6" d="M447.6,247.6c-145.6-3.5-283.4-68-283.4-68s34.6-5.2,46.2-6c59.2-3.8,237.1-3,237.1-3V247.6z"/>
+       		<path class="stra7" d="M442.7,247.2c-145.6-3.5-278.5-67.6-278.5-67.6s34.6-5.2,46.2-6c41.8,12.1,79.3,28,106,32.3
+       					c57.2,9.2,119.4,13.2,119.4,13.2L442.7,247.2z"/>
+       		<path class="stra8" d="M447.6,247.6c-145.6-3.5-283.4-68-283.4-68s42.6,16.7,53.7,20.4c40.4,13.3,62.3,19.4,88.6,26
+       					c25.2,6.3,58.4,11.7,72.5,13.7c45,6.5,68.5,5.9,68.5,5.9L447.6,247.6z"/>
+       		<path class="stra9" d="M504,166.4l-39-0.2h-17c-2.9,0-5.3,2.4-5.3,5.3v75.7c0,2.9,2.4,5.3,5.3,5.3h17c11.9-25.7,39-26,39-26v0h21.1
+       			c2.3,0,4.6-0.6,6.6-1.8l5.5-3.2c4.2-2.5,9.4-2.4,13.6,0.2l0.7,0.4c4.3,2.7,9.7,2.7,13.9,0c4.5-2.8,10.2-2.6,14.6,0.4l2.1,1.5
+       			c2.2,1.6,4.9,2.4,7.6,2.4h12.5v-60H504z"/>
+            <linearGradient id="stain_1_" gradientUnits="userSpaceOnUse" x1="265.8091" y1="221.7616" x2="340.2461" y2="221.7616">
+          		<stop  offset="1.295440e-03" style="stop-color:#A6A6A6"/>
+          		<stop  offset="0.8381" style="stop-color:#A6A6A6"/>
+          		<stop  offset="1" style="stop-color:#A6A6A6"/>
+          	</linearGradient>
+          	<path id="stain" d="M266.3,216c0,0,51.6,16.8,72.6,18.5c0,0,3-2.6,0-4.3s-10.2-2.5-11-6.4s-5.8-8-9.7-7.6
+          		c-3.9,0.4-6.5,2.8-16.9-1c-3.2-1.2,4.6-5.6-3.2-5.1c-5.6,0.3-6.4-2.8-15.7,1.1c-7,2.9-11.8,0.6-14.8,1.1
+          		C264.6,212.5,266.3,216,266.3,216z"/>
+       </g>
+      <g id="straw1">
+       	<g>
+       		<defs>
+				
+       			<path id="SVGID_6_" d="M280 290 H 330 V 330 H 280 L 280 290"/>
+       		</defs>
+       		<clipPath id="SVGID_7_">
+       			<use xlink:href="#SVGID_6_"  style="overflow:visible;"/>
+       		</clipPath>
+       		<g class="stra18">
+       			<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="300.0799" y1="346.7916" x2="300.0799" y2="250.0922">
+       				<stop  offset="1.295440e-03" style="stop-color:#eedcb6"/>
+       				<stop  offset="0.8381" style="stop-color:#eedcb6"/>
+       				<stop  offset="1" style="stop-color:#eedcb6"/>
+       			</linearGradient>
+       			<path class="stra19" d="M326.9,335.6c-3.7,3.8-11.8,9.3-17,10.4c-5,1.1-15.3,1-20.3,0c-4.6-1-12.6-6.2-15.9-9.5
+       				c-6.8-6.7-13-18.5-12.7-36.5c0.1-6.8,8.2-18.2,11.7-24.1c2.7-4.5,13.8-17.6,13.8-17.6c6.7-5.3,9.5-8.3,13.5-8.3
+       				c3.6,0,6.8,2.6,13.6,8.3c0,0,10.6,12.2,13.1,16.5c3.7,6.1,11.8,18.1,12.3,25.2C340.4,320.3,333.2,329,326.9,335.6z"/>
+       			<path class="stra2" d="M308.9,257.9c0.3,0.7,0,1.4-0.7,1.7c-0.7,0.3-1.4,0-1.7-0.7s0.2-2.8,0.2-2.8S308.6,257.2,308.9,257.9z"/>
+       			<path class="stra2" d="M319.4,274.8c0.2,0.9-0.3,1.7-1.2,1.9c-0.9,0.2-1.7-0.3-1.9-1.2c-0.2-0.9,0.9-3.3,0.9-3.3
+       				S319.2,273.9,319.4,274.8z"/>
+       			<path class="stra2" d="M309.3,269.7c0.2,0.9-0.4,1.9-1.3,2.1c-0.9,0.2-1.9-0.4-2.1-1.3c-0.2-0.9,1-3.6,1-3.6
+       				S309.1,268.8,309.3,269.7z"/>
+       			<path class="stra2" d="M324.6,297.3c0.1,1-0.6,1.8-1.6,1.9s-1.8-0.6-1.9-1.6s1.4-3.5,1.4-3.5S324.5,296.3,324.6,297.3z"/>
+       			<path class="stra2" d="M328,286.3c0.1,0.9-0.6,1.7-1.5,1.8c-0.9,0.1-1.7-0.6-1.8-1.5c-0.1-0.9,1.3-3.3,1.3-3.3
+       				S327.9,285.4,328,286.3z"/>
+       			<path class="stra2" d="M313.5,288.4c0.1,0.8-0.4,1.6-1.3,1.7c-0.8,0.1-1.6-0.4-1.7-1.3s1.1-3.1,1.1-3.1S313.4,287.5,313.5,288.4z"
+       				/>
+       			<path class="stra3" d="M286.1,275.8c-0.2,0.9-1.2,1.5-2.1,1.3c-0.9-0.2-1.5-1.2-1.3-2.1c0.2-0.9,2.5-2.8,2.5-2.8
+       				S286.3,274.9,286.1,275.8z"/>
+       			<path class="stra4" d="M299.2,286.7c0,1-0.7,1.8-1.7,1.8c-1,0-1.8-0.7-1.8-1.7c0-1,1.6-3.4,1.6-3.4S299.2,285.7,299.2,286.7z"/>
+       			<path class="stra5" d="M334,311c-0.1,1-1,1.7-2,1.6s-1.7-1-1.6-2c0.1-1,2.1-3.2,2.1-3.2S334.1,310,334,311z"/>
+       			<path class="stra5" d="M314.6,304.3c0.1,1-0.6,1.8-1.6,1.9s-1.8-0.6-1.9-1.6s1.4-3.5,1.4-3.5S314.5,303.3,314.6,304.3z"/>
+       			<path class="stra3" d="M316.6,317.3c0.1,1-0.6,1.8-1.6,1.9s-1.8-0.6-1.9-1.6s1.4-3.5,1.4-3.5S316.5,316.3,316.6,317.3z"/>
+       			<path class="stra3" d="M301.9,310.5c0.1,1-0.6,1.8-1.6,1.9s-1.8-0.6-1.9-1.6c-0.1-1,1.4-3.5,1.4-3.5S301.8,309.5,301.9,310.5z"/>
+       			<path class="stra3" d="M290.8,303.4c-0.1,1-1,1.7-1.9,1.6c-1-0.1-1.7-1-1.6-1.9c0.1-1,2.1-3.2,2.1-3.2S290.9,302.4,290.8,303.4z"/>
+       			<path class="stra3" d="M310.7,334c-0.3,0.9-1.3,1.4-2.2,1.1c-0.9-0.3-1.4-1.3-1.1-2.2c0.3-0.9,2.7-2.7,2.7-2.7S311,333,310.7,334z"
+       				/>
+       		</g>
+       	</g>
+      </g>
+	   </svg>
+	   
+	   <h4> <div class="col-md-4"> <!--공백-->
+	   </div>
+	   금속 단면의 변화를 살펴보세요!</h4>
+	   <a href="page-study-air"><button type="button" class="btn btn-primary" style="float: right;">이전으로</button></a>
+	</div>
+	</body>
+	   </html>

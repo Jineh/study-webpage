@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web & VR Hybrid</title>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/local.css" />
+    
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+        <script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+        
+
+    </head>
+    <body>
+<div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+              <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+              <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+              <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+              <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+          <div id="page-wrapper">
+              <div class="container">
+                  <div class="row">
+                     
+                      <div class="col-sm-9">
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <h2>[3회차 퀴즈]</h2>
+                                  <br>
+                                  <p>학습 정리를 위한 퀴즈입니다.</p> 
+                              </div>
+                          </div>
+                          <hr>
+                          <br>
+                      </div>
+                  </div>  
+                </form>
+                          <h4>1. 리튬(Li)에 관련한 특징으로 알맞지 않은 것은?</h4>
+                          <form method="post" action="/page-quiz-score">
+                            <input type="hidden" name="quizNum" value="3">
+                          <div class="form-group1">
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline1" value="option1">
+                                  1. 원자 번호는 3이다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline2" value="option2">
+                                  2. 알칼리 원소중 하나이다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option3">
+                                  3. 열 전달이나 전지 등에 사용할 수 있다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz1" id="optionsRadiosInline3" value="option4">
+                                  4. 조직의 삼투압을 조절한다.
+                              </label><br><br><br>  
+                          </div>
+                          
+                          <h4>2. 나트륨(Na)에 관련한 특징으로 옳은 것은?</h4>
+                          <div class="form-group2">
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline1" value="option1">
+                                  1. 원자번호는 3이다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline2" value="option2">
+                                  2. 4주기에 속한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option3">
+                                  3. 조직의 삼투압을 조절한다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz2" id="optionsRadiosInline3" value="option4">
+                                  4. 공기나 물 속에서 급격히 반응하여 산화한다.
+                              </label><br><br><br>  
+                          </div>
+                          
+                          <h4>3. 칼륨(K)에 관련한 특징으로 옳지 않은 것은?</h4>
+                          <div class="form-group3">
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline1" value="option1">
+                                  1. 나트륨과 화학적 성질이 비슷하다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline2" value="option2">
+                                  2. 원자번호는 11이다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option3">
+                                  3. 노란 불꽃을 내며 탄다.
+                              </label><br>
+                              <label class="radio-inline">
+                                  <input type="radio" name="quiz3" id="optionsRadiosInline3" value="option3">
+                                  4. 고급화장비누나 고온 온도계 등의 원료로 사용된다.
+                              </label><br><br><br>   
+                          </div>
+                          <input type="submit"  class="btn btn-primary btn-lg" value="제출">
+                            <br><br><br>
+                          <!-- 귀하의 점수는 <input type=text name=score value="" style=width:30>점 입니다. -->
+                          </form>     
+                      </div>
+                     
+      </div>
+      
+</body>
+  
+</html>

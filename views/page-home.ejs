@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web & VR Hybrid</title>
+<link rel="stylesheet" href="css/mystyle3.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/local.css" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<script type="text/javascript" src="http://prepbootstrap.com/Content/js/gridData.js"></script>
+
+</head>
+<body>
+
+<!-- 목차 -->
+	<div id="wrapper">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul id="active" class="nav navbar-nav side-nav">
+              <li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+              <li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+              <li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+              <li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+              <li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+			  <li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+			  <li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+			  <li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+			  <li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+           </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+					
+					
+
+                </ul>
+            </div>
+        </nav> <!-- end of navigation bar and index-->
+        
+        
+        
+<!-- 슬라이드 배너 -->        
+		<div class="slideshow-container">
+		
+			<div class="mySlides">
+			  <div class="numbertext">1 / 3</div>
+			  <img id="slide" src="img/vr.png" style="width:100%">
+			</div>
+			
+			<div class="mySlides">
+			  <div class="numbertext">2 / 3</div>
+			  <img id="slide" src="img/vr6.jpg" style="width:100%">
+			  <div class="text">WEB & VR HYBRID</div>
+			</div>
+			
+			<div class="mySlides">
+			  <div class="numbertext">3 / 3</div>
+			  <img id="slide" src="img/vrproduct.jpeg" style="width:100%">
+			  <div class="text3">Oculus</div>
+			</div>
+			
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+			
+			<div class="dots" style="text-align:right">
+			  <span class="dot" onclick="currentSlide(1)"></span> 
+			  <span class="dot" onclick="currentSlide(2)"></span> 
+			  <span class="dot" onclick="currentSlide(3)"></span> 
+			</div>
+		
+		</div>
+<br>
+<br>
+<br>
+<br>
+
+<!-- 슬라이드 밑에 설명?같은 것들 -->
+		<div class="backgroundVR">
+				<div class="VRdetail" >
+				  <div class="comment">
+				  <p>VR로 보는 교육 혁신
+				  <p id="abc">교육을 입체적, 시각적으로 느껴보세요
+				  </div>
+				  <img id="vr3" src="img/vr3.jpg" style="width:100%">
+				</div>
+		</div>
+		<div class="backgroundVR2" onClick="location.href='page-chart'">
+				<div class="VRdetail">
+				  <div class="comment2">
+				  <p>학습 현황
+				  <p id="abc">한 눈에 보는 학습 진도율과 오답관리를 통해 분석적으로 확인
+				  </div>
+				  <img id="graph" src="img/graph.png">
+				</div>
+		</div>
+		<div class="backgroundVR3" onClick="location.href='page-support'">
+				<div class="VRdetail">
+				  <div class="comment">
+				  <p>학습 지원
+				  <p id="abc">자주 묻는 질문을 통해 빠른 문제 해결
+				  </div>
+				  <img id="FAQ" src="img/FAQ.jpg">
+				</div>
+		</div>
+</div>
+
+<script>
+
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none"; 
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1} 
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(carousel, 3000); 
+}
+function currentSlide(n) { //밑에 동그라미
+	showSlides(slideIndex = n);
+}
+function plusSlides(n) { //양옆 버튼
+	  showSlides(slideIndex += n);
+}
+function showSlides(n) { //그림 변경
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides"); //그림 포함한 큰 틀
+	  var dots = document.getElementsByClassName("dot"); //밑에 동그라미
+	  if (n > slides.length) {slideIndex = 1}    //그림 3번을 넘어가면 다시 그림 1번으로
+	  if (n < 1) {slideIndex = slides.length}    //그림 1번보다 뒤로가면 다시 그림 3번으로
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";  //일단 다 안보이게
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block"; //배열이라서 1번=0번  
+	  dots[slideIndex-1].className += " active";
+}
+</script>
+</body>
+</html>

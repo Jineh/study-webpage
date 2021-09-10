@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title>Web & VR Hybrid</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/local.css" />
+	
+
+	<script src="../js/jquery-1.10.2.min.js"></script>      
+     <script type="text/javascript" src="http://localhost:3000/js/socket.io.js"></script>
+	<script src="../semantic.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>   
+	
+	<style>
+		body{
+		  font-family: "AppleSDGothicNeoR00";
+		  font-size: 15px;
+		}
+	  /* 메인 */
+		#main {
+		background-color: white;
+		background-size: 100%;
+		text-align: center;
+		width: 350px;
+		height: 535px;
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		display: block;  
+		box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+	  }
+	  #header{
+		width: 350px;
+		height: 30px;
+		background-color: #0b81ff;
+		line-height: 30px;
+		font-family: "AppleSDGothicNeoM00";
+		color: azure;
+		font-size: 17px;
+	  }
+				
+		
+
+		#cardbox {
+			width:94%;
+			height:94px;
+			padding-left:0.4em;
+			padding-right:0.4em;
+		}
+
+		#iconImage {
+			display:inline;
+		}
+		
+		#titleText {
+			font-size:1.4em;
+			font-weight:bold;
+			color:#777;
+		}
+		
+		#contentsText {
+			color:#999;
+		}
+		
+		#result {
+			position: absolute;
+		background-color: #ededed;
+		color: black;
+		height: 465px;
+		width: 334px;
+		overflow-y: auto;
+		top: 40px;
+		left: 8px;
+		border-radius: 10px;
+		}
+		#te{
+			height:480px;
+			width:480px;
+			
+			background: #b49191;
+		}
+
+		#dataInput{
+			position: absolute;
+		width: 220px;
+		height: 20px;
+		background-color: #f7f5f5;
+		color: black;
+		border-radius: 10px;
+		border: none;
+		top: 510px;
+		left: 70px;
+		font-family: "AppleSDGothicNeoR00";
+		}
+		#sendButton{
+		position: absolute;
+		width: 50px;
+		height: 22px;
+		background-color: #0b81ff;
+		color: white;
+		border-radius: 10px;
+		border: none;
+		top: 510px;
+		left: 292px;
+		font-family: "AppleSDGothicNeoR00";
+	  }
+		
+	  .connect {
+    width: 90%;
+    margin: auto;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 10px;
+  }
+		.discussion {
+		  	list-style: none;
+		  	background: #ededed;
+		  	margin: 0;
+		  	padding: 0 0 50px 0;
+			  font-size : 0.9em;
+		}
+		.my {
+		  	text-align: left;
+			  font-size: 0.9em;
+		}
+		.discussion li {
+		  	padding: 0.5em;
+		  	overflow: hidden;
+		  	display: flex;
+		}
+		
+		.discussion .avatar {
+		  	width: 40px;
+		  	position: relative;
+		}
+		
+		.discussion .avatar img {
+		  	display: block;
+		  	width: 100%;
+		}
+		
+		.other .avatar:after {
+		  	content: "";
+		  	position: absolute;
+		  	top: 0;
+		  	right: 0;
+		  	width: 0;
+		  	height: 0;
+		  	border: 5px solid white;
+		  	border-left-color: transparent;
+		  	border-bottom-color: transparent;
+		}
+		
+		.self {
+		  	justify-content: flex-end;
+		  	align-items: flex-end;
+		}
+		
+		
+		.self .avatar {
+		  	order: 2;
+		}
+		
+		.self .avatar:after {
+		  	content: "";
+		  	position: absolute;
+		  	bottom: 0;
+		  	left: 0;
+		  	width: 0;
+		  	height: 0;
+		  	border: 5px solid rgb(156, 223, 250);
+		  	border-right-color: #ededed;
+		  	border-top-color: #ededed;
+		  	
+		}
+		
+		.messages {
+		  	background: white;
+		  	padding: 10px;
+		  	border-radius: 2px;
+		  	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+		}
+		
+		.messages p {
+			text-align: left;
+		  	font-size: 0.8em;
+		  	margin: 0 0 0.2em 0;
+		}
+		
+		.messages time {
+		  	font-size: 0.7em;
+		  	color: rgb(24, 23, 23);
+		}
+
+		.mymessages {
+			
+		  	background: rgb(156, 223, 250);
+		  	padding: 10px;
+		  	border-radius: 2px;
+		  	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+		}
+		
+		.mymessages p {
+			text-align: left;
+		  	font-size: 0.8em;
+		  	margin: 0 0 0.2em 0;
+		}
+		
+		.mymessages time {
+		  	font-size: 0.7em;
+		  	color: rgb(31, 30, 30);
+		}
+		
+		
+	</style>
+
+<script>
+	var host;
+	var port;
+	var socket;
+	var mymyid="<%=myid%>";
+	var myname="<%=name%>";
+
+	var options = {'forceNew':true};
+		var url = 'http://localhost:3000';
+		socket = io.connect(url, options);
+
+		socket.on('connect', function() {
+				//console.log('웹소켓 서버에 연결되었습니다. : ' );
+				//console.log(JSON.stringify(url));
+				console.log('170');
+			   //println('169 웹소켓 서버에 연결되었습니다. : ' + url);
+			
+
+			var output = {id:mymyid,name:myname};
+			   console.log('서버로 보낼 데이터 : ' + JSON.stringify(output));
+
+			   if (socket == undefined) {
+				alert('서버에 연결되어 있지 않습니다. 먼저 서버에 연결하세요.');
+				return;
+			   }
+
+			socket.emit('login', output);
+			println(myname+'님이 입장하였습니다.'+'</br>');
+
+
+
+
+			socket.on('message', function(message) {
+				console.log(JSON.stringify(message));
+
+				//println('<p>수신 메시지 : ' + message.sender + ', ' + message.recepient + ', ' + message.command + ', ' + message.data + '</p>');
+				
+				addToDiscussion('other', message);
+			});
+
+			socket.on('response', function(response) {
+				//console.log(JSON.stringify(response));
+				if(response.command=='login'){
+					$(".discussion").append(response.message+'님이 입장하였습니다.'+'</br>');
+					//println(response.message);
+				
+				}
+				else if(response.command=='disconnect'){
+					$(".discussion").append(response.message+'님이 퇴장하였습니다.'+'</br>');
+				}
+					
+			});
+			
+		});
+
+		socket.on('disconnect', function(data) {
+			//var output = {id:mymyid};
+			//socket.emit('disconnect', output);
+			println(data.message);
+		});
+
+	
+	   
+	// 문서 로딩 후 실행됨
+	$(function() {
+
+		// 연결하기 버튼 클릭 처리
+		$("#connectButton").bind('click', function(event) {
+			println('connectButton이 클릭되었습니다.');
+			
+			   host = $('#hostInput').val();
+			   port = $('#portInput').val();
+
+			   connectToServer();
+		});
+
+		// 전송 버튼 클릭 시 처리
+		$("#sendButton").bind('click', function(event) {
+			//var sender = $('#senderInput').val();
+			//var recepient = $('ALL');
+			var Now= new Date();
+			var myhour=Now.getHours();
+			var mymin=Now.getMinutes();
+
+
+			var data = $('#dataInput').val();
+			$('#dataInput').val('');
+
+			  var output = { recepient:'ALL', command:'chat', type:'text', data:data,hh:myhour,mm:mymin };
+			console.log('서버로 보낼 데이터 : ' + JSON.stringify(output));
+
+			   if (socket == undefined) {
+				 alert('서버에 연결되어 있지 않습니다. 먼저 서버에 연결하세요.');
+				   return;
+			 }
+			 
+			   socket.emit('message', output);
+			   
+			   addToDiscussion('self', output);
+		  });
+		
+	});
+	   
+
+	   
+	function println(data) {
+		console.log(data);
+		$(".discussion").append(data);
+		//$('#result').append('<p>' + data + '</p>');
+	}
+	
+	function addToDiscussion(writer, msg) {
+		//println("addToDiscussion 호출됨 : " + writer + ", " + msg);
+		
+		var img = "img/user1.png";
+		var hhmessage= "mymessages";
+		
+
+
+		if (writer == 'other') {
+		img = "img/user1.png";
+		hhmessage='messages';
+		var chatname="";
+		for(var i=0; i<Object.keys(msg.myarr).length; i++){
+			if(msg.myarr[i]==msg.mysocket){
+				chatname=msg.namearr[i];
+
+			}
+		}
+
+		var contents =  "    <div class='my'>" + chatname+ "</div>"
+					+"<li class='" + writer + "'>"
+					
+					 + "  <div class='avatar'>"
+					 + "    <img src='" + img + "' />"
+					   + "  </div>"
+					   + "  <div class='" + hhmessage + "'>"
+					 + "    <p>" + msg.data+ "</p>"
+					 + "    <time >"+msg.hh+"시"+msg.mm+'분'+"</time>"
+					   + "  </div>"
+					 + "</li>";
+		
+		//println("추가할 HTML : " + contents);
+		$(".discussion").append(contents);
+		}
+		else if(writer == 'self'){
+		hhmessage='mymessages';
+		var img = "img/user1.png";
+		var contents = "<li class='" + writer + "'>"
+					 + "  <div class='avatar'>"
+						+ "    <img src='" + img + "' />"
+					   + "  </div>"
+					   + "  <div class='" + hhmessage + "'>"
+					 + "    <p>" + msg.data+ "</p>"
+					 + "    <time >"+msg.hh+"시"+msg.mm+'분'+"</time>"
+					   + "  </div>"
+					 + "</li>";
+		
+		//println("추가할 HTML : " + contents);
+		$(".discussion").append(contents);
+		}
+
+		
+
+		
+
+		
+	}
+	
+</script>
+</head>
+<body>
+
+    <div id="wrapper">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		  <div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				  <span class="sr-only">Toggle navigation</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="page-home">Web & VR hybrid</a>
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul id="active" class="nav navbar-nav side-nav">
+				<li><a href="page-home"><i class="fa fa-home"></i> HOME</a></li>
+				<li><a href="page-intro"><i class="fa fa-globe"></i> 소개</a></li>
+				<li><a href="page-prestudy1"><i class="fa fa-pencil"></i> 사전학습</a></li>
+				<li><a href="page-study-prepare"><i class="fa fa-book"></i> &nbsp;학습하기</a></li>
+				<li><a href="page-pre-quiz"><i class="fa fa-check"></i> &nbsp;퀴즈</a></li>
+				<li><a href="page-chart"><i class="fa fa-area-chart"></i>&nbsp; 학습현황</a></li>
+				<li><a href="page-board"><i class="fa fa-clipboard"></i>&nbsp;&nbsp;게시판</a></li>
+				<li><a href="page-chatting"><i class="fa fa-comments"></i>&nbsp;&nbsp;커뮤니티</a></li>
+				<li><a href="page-support"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;학습지원</a></li>
+			 </ul>
+              <ul class="nav navbar-nav navbar-right navbar-user">
+
+                <li>
+                    <form class="navbar-search">
+                        <% if(name=="null" ){%>
+                    <form >
+                        <button type="button" class="btn btn-primary" onclick="location.href='login' ">login</button>
+                    </form><% } %>
+                </li>
+
+                
+                <li class="divider-vertical"></li>
+                <% if(name!="null"){%>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= name %><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><br><center><img src="img/user.png" style="width:100px; height:100px;"></center><br>
+                            <li><a href="page-mypage"><i class="fa fa-user"></i> 마이페이지</a></li>
+                            <li class="divider"></li>
+                            <li><a href=page-logout><i class="fa fa-power-off"></i> 로그아웃</a></li>
+
+                    </ul>
+                </li><% } %>
+			  </ul>
+          </div>
+        
+	  </nav> <!-- end of navigation bar and index-->
+	</div>  
+			<!-- 결과 표시 -->
+			
+		    <div id="main">
+				<div id="header">community</div>
+			<div class="ui segment" id="result">
+			
+			  <ol class="discussion" >
+			    
+			  </ol>
+			
+			</div>
+			<div class="description">
+				<div class="ui input">
+					<input type="text" id="dataInput" /> 
+					<input class="ui primary button" type="button" id="sendButton" value="send" />
+				</div>
+			</div>
+			</div>
+			
+        
+   
+
+</body>
+</html>
